@@ -40,12 +40,15 @@ class Game{
                 form.hide();
 
                 Player.getPlayerInfo();
-                var displayPosition=50;
                  image(back_img, 0, 0, 1000, 800);
                  var x =100;
                  var y=200;
                  var index =0;
+
+
                  drawSprites();
+                 if(allPlayers !== undefined){
+                    var displayPosition = 50;
                  for(var plr in allPlayers){
                     
                      index = index+1;
@@ -54,7 +57,13 @@ class Game{
                      
                      players[index -1].x = x;
                      players[index - 1].y = y;
-                       
+
+                     fill("white");
+                     displayPosition += 30;
+                     textSize(25);
+                     text(allPlayers[plr].name + " : " + allPlayers[plr].score,50,displayPosition);
+                     
+                     
                      if(index === player.index){
                          
                        //add code to display the player's name on the respective basket
@@ -62,10 +71,6 @@ class Game{
                        textSize(25);
                        fill("black");
                        text(allPlayers[plr].name,x-25,y+25);
-                       fill("white");
-                       displayPosition+=30;
-                       textSize(25);
-                       text(allPlayers[plr].name + " : " + allPlayers[plr].score,50,displayPosition);
 
                          
                      }
@@ -73,6 +78,7 @@ class Game{
                       
                  
                  }
+                }
                 
                 
                  
